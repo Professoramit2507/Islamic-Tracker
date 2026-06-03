@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Fajr",
+    "time": "Before sunrise",
+     "image": "https://ibb.co.com/PGFDYdz0",
+    "virtue": "Fajr is the most important prayer of the day and is a time of great blessing.",
+    "steps": [
+      "Make niyyah (intention)",
+      "Perform Wudu",
+      "Face Qiblah",
+      "Say Takbir",
+      "Recite Surah Al-Fatiha + another Surah",
+      "Rukoo",
+      "Sujood",
+      "Sit between Sujood",
+      "Tashahhud and Tasleem"
+    ],
+    "rakats": [
+      "2 Rakats Sunnah",
+      "2 Rakats Fard"
+    ],
+    "bgColor": "bg-gradient-to-r from-indigo-500 to-purple-600"
+  },
+  {
+    "name": "Dhuhr",
+    "time": "After midday",
+     "image": "https://ibb.co.com/PGFDYdz0",
+    "virtue": "Dhuhr brings great reward and renews connection to Allah.",
+    "steps": [
+      "Make niyyah",
+      "Perform Wudu",
+      "Face Qiblah",
+      "Say Takbir",
+      "Recite Surah Al-Fatiha + another Surah",
+      "Rukoo & Sujood",
+      "Tashahhud and Tasleem"
+    ],
+    "rakats": [
+      "4 Rakats Sunnah",
+      "4 Rakats Fard",
+      "2 Rakats Sunnah"
+    ],
+    "bgColor": "bg-gradient-to-r from-teal-500 to-green-600"
+  },
+  {
+    "name": "Asr",
+    "time": "Afternoon before sunset",
+    "image": "https://ibb.co.com/PGFDYdz0",
+    "virtue": "Asr prayer is highly important and protects from loss.",
+    "steps": [
+      "Make niyyah",
+      "Perform Wudu",
+      "Face Qiblah",
+      "Say Takbir",
+      "Recite Surah",
+      "Rukoo & Sujood",
+      "Finish prayer"
+    ],
+    "rakats": [
+      "4 Rakats Sunnah",
+      "4 Rakats Fard"
+    ],
+    "bgColor": "bg-gradient-to-r from-orange-500 to-yellow-600"
+  },
+  {
+    "name": "Maghrib",
+    "time": "After sunset",
+    "image": "https://ibb.co.com/PGFDYdz0",
+    "virtue": "Maghrib prayer brings forgiveness.",
+    "steps": [
+      "Make niyyah",
+      "Perform Wudu",
+      "Face Qiblah",
+      "Say Takbir",
+      "Recite Surah",
+      "Rukoo & Sujood",
+      "Finish prayer"
+    ],
+    "rakats": [
+      "3 Rakats Fard",
+      "2 Rakats Sunnah"
+    ],
+    "bgColor": "bg-gradient-to-r from-pink-500 to-red-600"
+  },
+  {
+    "name": "Isha",
+    "time": "Night",
+    "image": "https://ibb.co.com/PGFDYdz0",
+    "virtue": "Isha prayer brings peace and rest.",
+    "steps": [
+      "Make niyyah",
+      "Perform Wudu",
+      "Face Qiblah",
+      "Say Takbir",
+      "Recite Surah",
+      "Rukoo & Sujood",
+      "Finish prayer"
+    ],
+    "rakats": [
+      "4 Rakats Fard",
+      "2 Rakats Sunnah",
+      "3 Rakats Witr"
+    ],
+    "bgColor": "bg-gradient-to-r from-blue-500 to-indigo-600"
+  }
+]
