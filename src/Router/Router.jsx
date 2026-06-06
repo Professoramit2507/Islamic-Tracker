@@ -18,6 +18,8 @@ import Asr from "../Components/NavberComponents/Asr";
 import Magrib from "../Components/NavberComponents/Magrib";
 import Isha from "../Components/NavberComponents/Isha";
 import Jumma from "../Components/NavberComponents/Jumma";
+import Login from "../Components/NavberComponents/Auth/Login";
+import Register from "../Components/NavberComponents/Auth/Register";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
         path: "special-modes",
         element: <Special_Modes></Special_Modes>,
       },
+      {
+        path:"login",
+        element:<Login></Login>
+      },
+      {
+        path:"register",
+        element:<Register></Register>
+      }
     ],
   },
   {
