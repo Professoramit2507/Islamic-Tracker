@@ -31,10 +31,8 @@ const Analytics = () => {
       
       {/* হেডার ব্যানার (Deep Teal & Ocean Theme) */}
       <div className="relative bg-gradient-to-b from-slate-950 via-teal-950 to-slate-900 text-white pt-6 pb-24 px-6 rounded-b-[2.5rem] shadow-lg border-b border-teal-900/20">
-        <div className="max-w-4xl mx-auto flex items-center justify-between relative z-10">
-          <button onClick={() => navigate(-1)} className="p-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full transition-all">
-            <ArrowLeft className="w-5 h-5" />
-          </button>
+        <div className="max-w-4xl mx-auto flex items-center justify-center relative z-10">
+          
           <span className="text-xs font-semibold tracking-widest uppercase opacity-70">Activity Analytics</span>
           <div className="w-10 h-10" />
         </div>

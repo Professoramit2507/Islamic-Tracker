@@ -5,13 +5,14 @@ import HowItWorks from '../HeroComponents/Works/Works';
 import CoreFeatures from '../HeroComponents/CoreFeatures/CoreFeatures';
 import WhyThisApp from '../HeroComponents/Why/WhyThisApp';
 import StatsSection from '../HeroComponents/Stat/StatsSection';
+import NamajTIme from '../NavberComponents/NamajTIme';
 
 const Landing = () => {
     return (
         <div>
             <Hero></Hero>
-            {/* <HowItWorks></HowItWorks> */}
             <CoreFeatures></CoreFeatures>
+            <NamajTIme></NamajTIme>
             <WhyThisApp></WhyThisApp>
             <StatsSection></StatsSection>
             <About></About>
