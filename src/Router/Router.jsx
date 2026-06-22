@@ -20,6 +20,7 @@ import Isha from "../Components/NavberComponents/Isha";
 import Jumma from "../Components/NavberComponents/Jumma";
 import Login from "../Components/NavberComponents/Auth/Login";
 import Register from "../Components/NavberComponents/Auth/Register";
+import ReadQuran from "../Components/NavberComponents/ReadQuran/ReadQuran";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "special-modes",
         element: <Special_Modes></Special_Modes>,
+      },
+      {
+        path:"read_quran",
+        element:<ReadQuran></ReadQuran>
       },
       {
         path:"login",
