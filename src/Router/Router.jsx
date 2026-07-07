@@ -21,6 +21,7 @@ import Jumma from "../Components/NavberComponents/Jumma";
 import Login from "../Components/NavberComponents/Auth/Login";
 import Register from "../Components/NavberComponents/Auth/Register";
 import ReadQuran from "../Components/NavberComponents/ReadQuran/ReadQuran";
+import Food from "../Components/Food/Food";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "prayer-tracking",
         element: <Prayer></Prayer>,
+      },
+      {
+        path:"food",
+        element:<Food></Food>
       },
       {
         path: "quran-spiritual",
