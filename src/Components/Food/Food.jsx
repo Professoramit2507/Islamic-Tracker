@@ -304,6 +304,9 @@
 
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+
+
 
 const Food = () => {
     const [food, setFood] = useState({
@@ -320,6 +323,9 @@ const Food = () => {
         reason: "",
         islamicReference: "",
         image: null,
+
+
+        
     });
 
     const handleChange = (e) => {
@@ -338,6 +344,8 @@ const Food = () => {
             });
         }
     };
+
+    const navigate = useNavigate();
 
    const handleSubmit = (e) => {
     e.preventDefault();
@@ -381,6 +389,7 @@ const Food = () => {
 
     // File input reset করার জন্য
     document.querySelector('input[type="file"]').value = "";
+    navigate("/halal-food-tracker");
 };
 
     return (
