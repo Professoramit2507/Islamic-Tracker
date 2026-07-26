@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { ArrowLeft, Sparkles, ShoppingBag, Leaf, Calendar, Barcode, ClipboardCheck, FileImage, CheckCircle } from "lucide-react";
+import {
+    ArrowLeft, Sparkles, ShoppingBag, Leaf, Calendar,
+    Barcode, ClipboardCheck, FileImage, CheckCircle, Camera
+} from "lucide-react";
+import BarcodeScannerModal from "../Food/BarcodeScanner";
 
 const Food = () => {
     const [food, setFood] = useState({
@@ -19,8 +23,10 @@ const Food = () => {
         image: null,
     });
 
-    // নোটিফিকেশনের জন্য স্টেট
     const [showToast, setShowToast] = useState(false);
+
+    // স্ক্যানার মোডাল ওপেন/ক্লোজ করার স্টেট
+    const [isScannerOpen, setIsScannerOpen] = useState(false);
 
     const handleChange = (e) => {
         setFood({
@@ -39,78 +45,103 @@ const Food = () => {
         }
     };
 
+    const handleScanSuccess = (scannedCode) => {
+        setFood((prev) => ({
+            ...prev,
+            barcode: scannedCode,
+        }));
+    };
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        const oldFoods = JSON.parse(localStorage.getItem("foods")) || [];
-        const newFood = {
-            id: Date.now(),
-            ...food
-        };
+    const oldFoods = JSON.parse(localStorage.getItem("foods")) || [];
 
-        localStorage.setItem(
-            "foods",
-            JSON.stringify([...oldFoods, newFood])
-        );
+   const alreadyExists = oldFoods.some(
+    (item) =>
+        item.name.trim().toLowerCase() === food.name.trim().toLowerCase()
+);
 
-        // মাঝখানে বড় নোটিফিকেশন ট্রিপার করা হলো
-        setShowToast(true);
 
-        // ফর্ম রিসেট
-        setFood({
-            name: "",
-            brand: "",
-            ingredients: "",
-            nutrition: "",
-            country: "",
-            manufactureDate: "",
-            expiryDate: "",
-            barcode: "",
-            qrCode: "",
-            halalStatus: "Halal",
-            reason: "",
-            islamicReference: "",
-            image: null,
-        });
+    if (alreadyExists) {
+        alert("❌ এই Product আগে থেকেই Add করা আছে!");
+        return;
+    }
 
-        if (document.querySelector('input[type="file"]')) {
-            document.querySelector('input[type="file"]').value = "";
-        }
-
-        // ২.৫ সেকেন্ড পর নোটিফিকেশন বন্ধ হয়ে রিডাইরেক্ট হবে
-        setTimeout(() => {
-            setShowToast(false);
-            navigate("/halal-food-tracker");
-        }, 2500);
+    const newFood = {
+        id: Date.now(),
+        ...food,
     };
+
+    localStorage.setItem(
+        "foods",
+        JSON.stringify([...oldFoods, newFood])
+    );
+
+    setShowToast(true);
+
+    setFood({
+        name: "",
+        brand: "",
+        ingredients: "",
+        nutrition: "",
+        country: "",
+        manufactureDate: "",
+        expiryDate: "",
+        barcode: "",
+        qrCode: "",
+        halalStatus: "Halal",
+        reason: "",
+        islamicReference: "",
+        image: null,
+    });
+
+    if (document.querySelector('input[type="file"]')) {
+        document.querySelector('input[type="file"]').value = "";
+    }
+
+    setTimeout(() => {
+        setShowToast(false);
+        navigate("/halal-food-tracker");
+    }, 2500);
+};
+
 
     return (
         <div className="min-h-screen bg-[#faf8f5] text-slate-800 font-sans pb-16 selection:bg-emerald-200 relative">
-            
-            {/* স্ক্রিনের মাঝখানে বড় নোটিফিকেশন (ব্লার ব্যাকগ্রাউন্ড সহ) */}
+
+            {/* বারকোড স্ক্যানার মোডাল (পপ-আপ) */}
+            {isScannerOpen && (
+                <BarcodeScannerModal
+                    onClose={() => setIsScannerOpen(false)}
+                    onScanSuccess={handleScanSuccess}
+                />
+            )}
+
+            {/* সাকসেস নোটিফিকেশন */}
             {showToast && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 animate-fade-in">
-                    <div className="bg-white text-slate-900 px-8 py-8 rounded-3xl shadow-2xl border border-emerald-100 flex flex-col items-center text-center max-w-sm w-full space-y-4 scale-100 animate-in zoom-in-95 duration-200">
+                    <div className="bg-white text-slate-900 px-8 py-8 rounded-3xl shadow-2xl border border-emerald-100 flex flex-col items-center text-center max-w-sm w-full space-y-4">
                         <div className="bg-emerald-100 p-4 rounded-2xl ring-8 ring-emerald-50">
                             <CheckCircle className="w-10 h-10 text-emerald-600 animate-pulse" />
                         </div>
                         <div className="space-y-1">
                             <h3 className="text-xl font-extrabold text-emerald-950">আলহামদুলিল্লাহ!</h3>
-                            <p className="text-sm font-bold text-slate-700">খাবারটি সফলভাবে যুক্ত হয়েছে 🎉</p>
-                            <p className="text-xs text-slate-400 pt-1">আপনাকে ট্র্যাকার পেজে নিয়ে যাওয়া হচ্ছে...</p>
+                            <p className="text-sm font-bold text-slate-700">খাবারটি সফলভাবে যুক্ত হয়েছে 🎉</p>
+                            <p className="text-xs text-slate-400 pt-1">আপনাকে ট্র্যাকার পেজে নিয়ে যাওয়া হচ্ছে...</p>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* প্রিমিয়াম ইসলামিক থিম হেডার ব্যানার */}
+            {/* হেডার ব্যানার */}
             <div className="relative bg-linear-to-b from-slate-950 via-emerald-950 to-slate-900 text-white pt-10 pb-24 px-6 rounded-b-[3rem] shadow-2xl border-b border-emerald-900/30 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-emerald-600/10 via-transparent to-transparent opacity-80" />
-                
+
                 <div className="max-w-3xl mx-auto relative z-10">
-                    <button 
+                    <button
                         onClick={() => navigate("/halal-food-tracker")}
                         className="inline-flex items-center gap-2 cursor-pointer text-emerald-200/80 hover:text-white transition text-sm font-medium mb-6 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl backdrop-blur-md border border-white/5"
                     >
@@ -125,7 +156,7 @@ const Food = () => {
                             Add New Food Product
                         </h1>
                         <p className="text-emerald-200/60 text-xs md:text-sm max-w-xl mx-auto">
-                            নতুন খাবার প্রোডাক্টের উপাদান, পুষ্টিগুণ, বারকোড এবং শরীয়াহ ভিত্তিক হালাল মানদণ্ড ইনপুট দিয়ে কালেকশন সমৃদ্ধ করুন।
+                            নতুন খাবার প্রোডাক্টের উপাদান, পুষ্টিগুণ, বারকোড এবং শরীয়াহ ভিত্তিক হালাল মানদণ্ড ইনপুট দিয়ে কালেকশন সমৃদ্ধ করুন।
                         </p>
                     </div>
                 </div>
@@ -244,7 +275,7 @@ const Food = () => {
                         </div>
                     </div>
 
-                    {/* সেকশন ৪: কোড এবং আইডেন্টিফায়ার */}
+                    {/* সেকশন ৪: কোড এবং আইডেন্টিফায়ার (ক্যামেরা স্ক্যান বাটন সহ) */}
                     <div className="space-y-4">
                         <h3 className="text-md font-bold text-emerald-900 flex items-center gap-2 border-b pb-2 border-slate-100 uppercase tracking-wider">
                             <Barcode className="w-4 h-4 text-emerald-700" /> Identifiers & Codes
@@ -252,14 +283,24 @@ const Food = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Barcode Number</label>
-                                <input
-                                    type="text"
-                                    name="barcode"
-                                    placeholder="যেমন: 89010580023"
-                                    value={food.barcode}
-                                    onChange={handleChange}
-                                    className="w-full bg-slate-50/50 border border-slate-200 focus:border-emerald-700 focus:bg-white focus:ring-4 focus:ring-emerald-700/5 p-3 rounded-xl transition duration-200 outline-none text-slate-800 placeholder-slate-400 text-sm font-medium"
-                                />
+                                <div className="flex gap-2">
+                                    <input
+                                        type="text"
+                                        name="barcode"
+                                        placeholder="যেমন: 89010580023"
+                                        value={food.barcode}
+                                        onChange={handleChange}
+                                        className="w-full bg-slate-50/50 border border-slate-200 focus:border-emerald-700 focus:bg-white focus:ring-4 focus:ring-emerald-700/5 p-3 rounded-xl transition duration-200 outline-none text-slate-800 placeholder-slate-400 text-sm font-medium"
+                                    />
+                                    {/* স্ক্যান করার বাটন */}
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsScannerOpen(true)}
+                                        className="bg-emerald-700 text-white px-4 py-3 rounded-xl hover:bg-emerald-800 transition flex items-center gap-1.5 font-bold text-xs shrink-0 cursor-pointer shadow-sm"
+                                    >
+                                        <Camera className="w-4 h-4" /> Scan
+                                    </button>
+                                </div>
                             </div>
 
                             <div>
@@ -315,7 +356,7 @@ const Food = () => {
                             <textarea
                                 name="islamicReference"
                                 rows="2"
-                                placeholder="কোরআনের আয়াত, হাদিস বা কোনো হালাল সার্টিফিকেট অথরিটির নাম উল্লেখ করুন..."
+                                placeholder="কোরআনের আয়াত, হাদিস বা কোনো হালাল সার্টিফিকেট অথরিটির নাম উল্লেখ করুন..."
                                 value={food.islamicReference}
                                 onChange={handleChange}
                                 className="w-full bg-white border border-emerald-950/10 focus:border-emerald-700 focus:ring-4 focus:ring-emerald-700/5 p-3 rounded-xl transition duration-200 outline-none text-slate-800 placeholder-slate-400 resize-none text-sm font-medium"

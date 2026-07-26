@@ -116,6 +116,8 @@ const Halal_Food = () => {
                   </h3>
                   <p className="text-sm text-gray-500 mt-1">🏷️ {food.brand}</p>
                   <p className="text-sm text-gray-500">🌍 {food.country}</p>
+                 <p className="text-sm text-gray-500">🔢 Barcode: {food.barcode}</p>
+
 
                   <div className="mt-3">
                     {food.halalStatus === "Halal" ? (
