@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Search, ShieldCheck, AlertTriangle, Info, QrCode, Sparkles, Trash2, Eye, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router';
+import green from '../../assets/circle/images.jpg';
+import red from '../../assets/circle/images (1).jpg';
 
 const Halal_Food = () => {
   const [activeTab, setActiveTab] = useState('ecode'); // ecode (Food Search), qrscan, ingredients (E Code Details)
@@ -31,7 +33,7 @@ const Halal_Food = () => {
     }
   };
 
-// ই-কোড (E-Numbers) ডাটাবেজ (বর্ধিত)
+  // ই-কোড (E-Numbers) ডাটাবেজ (বর্ধিত)
   const eNumbersData = [
     { code: "E120", name: "Carmine / Cochineal", status: "হারাম", type: "রং উৎপাদনকারী", desc: "বিশেষ এক ধরণের স্ত্রী পোকা পিষে এই গাঢ় লাল রং তৈরি করা হয়, যা জুস, চিপস, মিষ্টি ও আইসক্রিমে ব্যবহৃত হয়।" },
     { code: "E441", name: "Gelatin", status: "সন্দেহজনক", type: "ঘনত্ব বৃদ্ধিকারী", desc: "যদি উদ্ভিজ্জ (Plant-sourced) না হয়, তবে এটি অনুইসলামী পদ্ধতিতে জবাই করা পশুর (অথবা শূকরের) হাড় ও চামড়া থেকে তৈরি হতে পারে।" },
@@ -60,7 +62,7 @@ const Halal_Food = () => {
   );
 
   // ২. অ্যাড করা ফুড কালেকশনকে বারকোড, নাম এবং উপাদান দিয়ে ফিল্টার করা
-  const filteredFoods = foods.filter(food => 
+  const filteredFoods = foods.filter(food =>
     food.barcode?.toString().toLowerCase().includes(searchQuery.toLowerCase()) ||
     food.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     food.ingredients?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -80,6 +82,8 @@ const Halal_Food = () => {
       });
     }, 3000);
   };
+
+
 
   // রেন্ডার করা খাবারের গ্রিড কম্পোনেন্ট
   const renderFoodCollection = () => (
@@ -111,12 +115,29 @@ const Halal_Food = () => {
                 )}
 
                 <div className="p-5 space-y-3">
-                  <h3 className="text-xl font-bold text-slate-800">
-                    {food.name}
-                  </h3>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold text-slate-800">
+                      {food.name}
+                    </h3>
+
+                    {food.vegType === "Veg" ? (
+                      <img
+                        src={green}
+                        alt="Vegetarian"
+                        className="w-7 h-7"
+                      />
+                    ) : (
+                      <img
+                        src={red}
+                        alt="Non Vegetarian"
+                        className="w-7 h-7"
+                      />
+                    )}
+                  </div>
+
                   <p className="text-sm text-gray-500 mt-1">🏷️ {food.brand}</p>
                   <p className="text-sm text-gray-500">🌍 {food.country}</p>
-                 <p className="text-sm text-gray-500">🔢 Barcode: {food.barcode}</p>
+                  <p className="text-sm text-gray-500">🔢 Barcode: {food.barcode}</p>
 
 
                   <div className="mt-3">
@@ -137,13 +158,13 @@ const Halal_Food = () => {
 
               {/* অ্যাকশন বাটনস */}
               <div className="p-5 pt-0 space-y-2">
-                <button 
+                <button
                   onClick={() => setSelectedFood(food)}
                   className="w-full flex items-center justify-center gap-2 cursor-pointer bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-2 px-4 rounded-xl border border-emerald-200 transition duration-200"
                 >
                   <Eye className="w-4 h-4" /> View Details
                 </button>
-                <button 
+                <button
                   onClick={(e) => handleDeleteFood(food.id, e)}
                   className="w-full flex items-center justify-center gap-2 cursor-pointer bg-red-50 hover:bg-red-100 text-red-600 font-semibold py-2 px-4 rounded-xl border border-red-200 transition duration-200"
                 >
@@ -186,9 +207,9 @@ const Halal_Food = () => {
 
       {/* ফুড সার্চ ট্যাব এবং ফুড ম্যানেজমেন্ট লিঙ্ক */}
       {activeTab === 'ecode' && (
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }} 
-          animate={{ opacity: 1, y: 0 }} 
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="space-y-4 animate-in fade-in zoom-in-95 duration-150"
         >
           {/* খাবারের সার্চ বার */}
@@ -214,7 +235,7 @@ const Halal_Food = () => {
       {/* মেইন ডাইনামিক কন্টেন্ট এরিয়া */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 mt-10 relative z-20">
         <AnimatePresence mode="wait">
-          
+
           {/* ট্যাব ১: Food Search */}
           {activeTab === 'ecode' && (
             <motion.div key="ecode" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}>
@@ -289,7 +310,7 @@ const Halal_Food = () => {
                   className="w-full pl-12 pr-4 py-3.5 bg-white border border-emerald-950/10 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-900 transition-all text-slate-800 placeholder:text-slate-400 font-medium"
                 />
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {filteredCodes.length > 0 ? (
                   filteredCodes.map((item, index) => (
@@ -304,11 +325,10 @@ const Halal_Food = () => {
                           </h4>
                           <p className="text-xs text-gray-400 mt-0.5">প্রকার: {item.type}</p>
                         </div>
-                        <span className={`text-xs px-2.5 py-1 rounded-full font-bold border ${
-                          item.status === 'হারাম' ? 'bg-red-50 text-red-600 border-red-100' :
-                          item.status === 'সন্দেহজনক' ? 'bg-amber-50 text-amber-600 border-amber-100' :
-                          'bg-green-50 text-green-600 border-green-100'
-                        }`}>
+                        <span className={`text-xs px-2.5 py-1 rounded-full font-bold border ${item.status === 'হারাম' ? 'bg-red-50 text-red-600 border-red-100' :
+                            item.status === 'সন্দেহজনক' ? 'bg-amber-50 text-amber-600 border-amber-100' :
+                              'bg-green-50 text-green-600 border-green-100'
+                          }`}>
                           {item.status}
                         </span>
                       </div>
@@ -335,16 +355,16 @@ const Halal_Food = () => {
         {selectedFood && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             {/* ব্যাকড্রপ ওভারলে */}
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedFood(null)}
               className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
             />
 
             {/* মডাল বক্স */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
@@ -357,7 +377,7 @@ const Halal_Food = () => {
                 ) : (
                   <div className="w-full h-24 bg-gradient-to-r from-emerald-950 to-slate-900" />
                 )}
-                <button 
+                <button
                   onClick={() => setSelectedFood(null)}
                   className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur-md transition cursor-pointer"
                 >
@@ -369,7 +389,26 @@ const Halal_Food = () => {
               <div className="p-6 md:p-8 overflow-y-auto space-y-6 flex-1">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-800">{selectedFood.name}</h3>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-800">
+                        {selectedFood.name}
+                      </h3>
+
+                      {selectedFood.vegType === "Veg" ? (
+                        <img
+                          src={green}
+                          alt="Vegetarian"
+                          className="w-8 h-8"
+                        />
+                      ) : (
+                        <img
+                          src={red}
+                          alt="Non Vegetarian"
+                          className="w-8 h-8"
+                        />
+                      )}
+                    </div>
+
                     <p className="text-sm text-gray-500 mt-1">🏷️ Brand: {selectedFood.brand} | 🌍 Country: {selectedFood.country}</p>
                   </div>
                   <div>
@@ -427,7 +466,7 @@ const Halal_Food = () => {
 
               {/* মডাল ফুটার */}
               <div className="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
-                <button 
+                <button
                   onClick={() => setSelectedFood(null)}
                   className="px-6 py-2 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-sm transition cursor-pointer"
                 >

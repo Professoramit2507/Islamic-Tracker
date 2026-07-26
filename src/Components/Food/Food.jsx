@@ -8,20 +8,22 @@ import BarcodeScannerModal from "../Food/BarcodeScanner";
 
 const Food = () => {
     const [food, setFood] = useState({
-        name: "",
-        brand: "",
-        ingredients: "",
-        nutrition: "",
-        country: "",
-        manufactureDate: "",
-        expiryDate: "",
-        barcode: "",
-        qrCode: "",
-        halalStatus: "Halal",
-        reason: "",
-        islamicReference: "",
-        image: null,
+     name: "",
+    brand: "",
+    ingredients: "",
+    nutrition: "",
+    country: "",
+    manufactureDate: "",
+    expiryDate: "",
+    barcode: "",
+    qrCode: "",
+    halalStatus: "Halal",
+    vegType: "Veg", // এটা যোগ করুন
+    reason: "",
+    islamicReference: "",
+    image: null,
     });
+
 
     const [showToast, setShowToast] = useState(false);
 
@@ -55,58 +57,58 @@ const Food = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const oldFoods = JSON.parse(localStorage.getItem("foods")) || [];
+        const oldFoods = JSON.parse(localStorage.getItem("foods")) || [];
 
-   const alreadyExists = oldFoods.some(
-    (item) =>
-        item.name.trim().toLowerCase() === food.name.trim().toLowerCase()
-);
+        const alreadyExists = oldFoods.some(
+            (item) =>
+                item.name.trim().toLowerCase() === food.name.trim().toLowerCase()
+        );
 
 
-    if (alreadyExists) {
-        alert("❌ এই Product আগে থেকেই Add করা আছে!");
-        return;
-    }
+        if (alreadyExists) {
+            alert("❌ এই Product আগে থেকেই Add করা আছে!");
+            return;
+        }
 
-    const newFood = {
-        id: Date.now(),
-        ...food,
+        const newFood = {
+            id: Date.now(),
+            ...food,
+        };
+
+        localStorage.setItem(
+            "foods",
+            JSON.stringify([...oldFoods, newFood])
+        );
+
+        setShowToast(true);
+
+        setFood({
+            name: "",
+            brand: "",
+            ingredients: "",
+            nutrition: "",
+            country: "",
+            manufactureDate: "",
+            expiryDate: "",
+            barcode: "",
+            qrCode: "",
+            halalStatus: "Halal",
+            reason: "",
+            islamicReference: "",
+            image: null,
+        });
+
+        if (document.querySelector('input[type="file"]')) {
+            document.querySelector('input[type="file"]').value = "";
+        }
+
+        setTimeout(() => {
+            setShowToast(false);
+            navigate("/halal-food-tracker");
+        }, 2500);
     };
-
-    localStorage.setItem(
-        "foods",
-        JSON.stringify([...oldFoods, newFood])
-    );
-
-    setShowToast(true);
-
-    setFood({
-        name: "",
-        brand: "",
-        ingredients: "",
-        nutrition: "",
-        country: "",
-        manufactureDate: "",
-        expiryDate: "",
-        barcode: "",
-        qrCode: "",
-        halalStatus: "Halal",
-        reason: "",
-        islamicReference: "",
-        image: null,
-    });
-
-    if (document.querySelector('input[type="file"]')) {
-        document.querySelector('input[type="file"]').value = "";
-    }
-
-    setTimeout(() => {
-        setShowToast(false);
-        navigate("/halal-food-tracker");
-    }, 2500);
-};
 
 
     return (
@@ -200,6 +202,24 @@ const Food = () => {
                             </div>
                         </div>
                     </div>
+
+
+                    <div>
+                        <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                            Food Type
+                        </label>
+
+                        <select
+                            name="vegType"
+                            value={food.vegType}
+                            onChange={handleChange}
+                            className="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl"
+                        >
+                            <option value="Veg">🟢 Vegetarian</option>
+                            <option value="NonVeg">🔴 Non-Vegetarian</option>
+                        </select>
+                    </div>
+
 
                     {/* সেকশন ২: উপাদান ও পুষ্টিগুণ */}
                     <div className="space-y-4">
