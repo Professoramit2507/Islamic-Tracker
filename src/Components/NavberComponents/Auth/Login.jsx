@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-// ডানপাশের জন্য একটি প্রিমিয়াম ইসলামিক আর্ট বা মস্ক ইমেজ ব্যবহার করুন
+
 import loginBg from "../../../assets/islamic-mosque-door-with-moon-palm-trees-night.jpg";
 
 const Login = () => {
@@ -21,18 +21,18 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // আপনার লগইন লজিক এখানে যুক্ত করুন
+    
     console.log("Logging in with:", { email, password });
   };
 
-  // সব সময় চলতে থাকা ফ্লোটিং অ্যানিমেশন কনফিগারেশন
+
   const infiniteFloating = {
     animate: {
-      y: [0, -12, 0], // উপর-নিচ মুভমেন্ট
+      y: [0, -12, 0], 
       transition: {
         duration: 4,
         ease: "easeInOut",
-        repeat: Infinity, // সব সময় চলবে
+        repeat: Infinity, 
       },
     },
   };
