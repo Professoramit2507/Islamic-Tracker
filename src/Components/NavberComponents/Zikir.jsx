@@ -65,7 +65,7 @@ const Zikir = () => {
           <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-purple-200 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" /> প্রতিদিনের আত্মশুদ্ধি
           </div>
-          <h1 className="text-3xl md:text-5xl font-serif font-bold text-transparent bg-clip-text bg-linear-to-r from-amber-100 via-purple-50 to-amber-100 tracking-wide">
+          <h1 className="text-3xl md:text-3xl mt-2 font-serif font-bold text-transparent bg-clip-text bg-linear-to-r from-amber-100 via-purple-50 to-amber-100 tracking-wide">
             ডিজিটাল তাসবিহ ও দোয়া কাউন্টার
           </h1>
           <p className="text-purple-200/60 text-xs md:text-sm max-w-md mx-auto">
