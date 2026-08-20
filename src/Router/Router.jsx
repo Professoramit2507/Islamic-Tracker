@@ -23,6 +23,7 @@ import Register from "../Components/NavberComponents/Auth/Register";
 import ReadQuran from "../Components/NavberComponents/ReadQuran/ReadQuran";
 import Food from "../Components/Food/Food";
 import LearnQuran from "../Components/Learn_Quran/LearnQuran";
+import Hadith from "../Components/Hadith/Hadith";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "learn-quran",
         element: <LearnQuran></LearnQuran>
+      },
+      {
+        path:"read_hadith",
+        element:<Hadith></Hadith>
       },
       {
         path: "analytics",
