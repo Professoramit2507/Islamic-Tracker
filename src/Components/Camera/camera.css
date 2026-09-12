@@ -1,0 +1,130 @@
+.camera-container {
+  width: 750px;
+  margin: 50px auto;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.camera-container h1 {
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Video */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #000;
+}
+
+.camera-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Selfie camera হলে mirror হবে */
+  transform: scaleX(-1);
+}
+
+/* Camera Off */
+.camera-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 20px;
+  background: #111827;
+}
+
+/* Camera ON */
+.camera-status {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+
+  background: #22c55e;
+  border-radius: 50%;
+
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Buttons */
+.open-btn,
+.close-btn {
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 13px 28px;
+
+  color: white;
+  font-size: 16px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.open-btn {
+  background: #2563eb;
+}
+
+.open-btn:hover {
+  background: #1d4ed8;
+}
+
+.close-btn {
+  background: #dc2626;
+}
+
+.close-btn:hover {
+  background: #b91c1c;
+}
+
+/* Error */
+.error {
+  margin-top: 15px;
+  padding: 12px;
+
+  background: #fee2e2;
+  color: #b91c1c;
+
+  border-radius: 8px;
+}

@@ -24,6 +24,7 @@ import ReadQuran from "../Components/NavberComponents/ReadQuran/ReadQuran";
 import Food from "../Components/Food/Food";
 import LearnQuran from "../Components/Learn_Quran/LearnQuran";
 import Hadith from "../Components/Hadith/Hadith";
+import Camera from "../Components/Camera/camera";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "prayer-tracking",
         element: <Prayer></Prayer>,
+      },
+      {
+        path:"camera",
+        element:<Camera></Camera>
       },
       {
         path:"food",
