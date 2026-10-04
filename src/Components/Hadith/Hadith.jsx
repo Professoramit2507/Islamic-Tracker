@@ -155,9 +155,9 @@ const HexIcon = ({ children }) => {
   return (
     <div
       className="
-        w-[58px]
-        h-[58px]
-        bg-gradient-to-br
+        w-14.5
+        h-14.5
+        bg-linear-to-br
         from-blue-500
         to-indigo-700
         flex
@@ -689,8 +689,8 @@ const Hadith = () => {
         -top-24
         left-1/2
         -translate-x-1/2
-        w-[420px]
-        h-[220px]
+        w-105
+        h-55
         bg-purple-600/20
         blur-[80px]
         rounded-full
@@ -792,7 +792,7 @@ const Hadith = () => {
               className="
       absolute
       left-1/2
-      bottom-[-32px]
+      -bottom-8
       -translate-x-1/2
       z-20
       w-[92%]
@@ -1146,7 +1146,7 @@ const Collections = () => {
                     w-11
                     h-11
                     rounded-xl
-                    bg-gradient-to-br
+                    bg-linear-to-br
                     from-blue-600
                     to-indigo-700
                     text-white
@@ -1239,7 +1239,7 @@ const Collections = () => {
 
         <div
           className="
-            bg-gradient-to-br
+            bg-linear-to-br
             from-[#071A3D]
             to-[#174EA6]
             rounded-2xl
@@ -1441,7 +1441,7 @@ const Collections = () => {
                     className="
                       text-right
                       text-[19px]
-                      leading-[2]
+                      leading-loose
                       font-serif
                       text-slate-800
                     "
@@ -1629,7 +1629,7 @@ const Collections = () => {
 
       <main
         className="
-          max-w-[720px]
+          max-w-180
           mx-auto
         "
       >
