@@ -154,20 +154,7 @@ const toBanglaNumber = (value) => {
 const HexIcon = ({ children }) => {
   return (
     <div
-      className="
-        w-14.5
-        h-14.5
-        bg-linear-to-br
-        from-blue-500
-        to-indigo-700
-        flex
-        items-center
-        justify-center
-        text-white
-        font-bold
-        text-[16px]
-        shrink-0
-        shadow-lg
+      className=" w-14.5 h-14.5 bg-linear-to-br from-blue-500 to-indigo-700 flex items-center justify-center text-white font-bold text-[16px] shrink-0 shadow-lg
       "
       style={{
         clipPath:
@@ -447,7 +434,7 @@ const Hadith = () => {
       console.error(err);
 
       setError(
-        "হাদিসের তথ্য লোড করা যাচ্ছে না। ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।"
+        "হাদিসের তথ্য লোড করা যাচ্ছে না।"
       );
     } finally {
       setLoading(false);
@@ -665,35 +652,14 @@ const Hadith = () => {
             {/* Main Header */}
 
             <div
-              className="
-      relative
-      overflow-hidden
-      bg-linear-to-b
-      from-[#100626]
-      via-[#3d096b]
-      to-[#171832]
-      text-white
-      rounded-b-[48px]
-      shadow-[0_12px_30px_rgba(20,10,50,0.20)]
-      px-5
-      pt-8
-      pb-24
+              className=" relative overflow-hidden bg-linear-to-b from-[#100626] [#3d096b] to-[#171832] text-white rounded-b-[48px] shadow-[0_12px_30px_rgba(20,10,50,0.20)] px-5 pt-8 pb-24
     "
             >
 
               {/* Glow */}
 
               <div
-                className="
-        absolute
-        -top-24
-        left-1/2
-        -translate-x-1/2
-        w-105
-        h-55
-        bg-purple-600/20
-        blur-[80px]
-        rounded-full
+                className=" absolute -top-24 left-1/2 -translate-x-1/2 w-105 h-55  bg-purple-600/20 blur-[80px] rounded-full
       "
               />
 
@@ -702,13 +668,7 @@ const Hadith = () => {
                 {/* Small heading */}
 
                 <p
-                  className="
-          text-[13px]
-          md:text-[14px]
-          font-bold
-          tracking-widest
-          text-white/65
-          uppercase
+                  className=" text-[13px] md:text-[14px] font-bold tracking-widest text-white/65 uppercase
         "
                 >
                   SPIRITUAL GUIDE
@@ -718,20 +678,7 @@ const Hadith = () => {
                 {/* Badge */}
 
                 <div
-                  className="
-          inline-flex
-          items-center
-          gap-1.5
-          mt-7
-          px-4
-          py-1.5
-          rounded-full
-          bg-purple-700/30
-          border
-          border-purple-400/20
-          text-purple-100
-          text-[11px]
-          md:text-[12px]
+                  className=" inline-flex items-center gap-1.5 mt-7 px-4 py-1.5 rounded-full bg-purple-700/30 border  border-purple-400/20  text-purple-100 text-[11px]md:text-[12px]
         "
                 >
 
@@ -749,15 +696,7 @@ const Hadith = () => {
                 {/* Main title */}
 
                 <h1
-                  className="
-          mt-3
-          text-[34px]
-          sm:text-[40px]
-          md:text-[52px]
-          leading-tight
-          font-bold
-          font-serif
-          text-white
+                  className=" mt-3 text-[34px] sm:text-[40px] md:text-[52px] leading-tight font-bold font-serif  text-white
         "
                 >
                   হাদিস শরীফ
@@ -767,13 +706,7 @@ const Hadith = () => {
                 {/* Subtitle */}
 
                 <p
-                  className="
-          mt-2
-          text-[12px]
-          sm:text-[13px]
-          md:text-[15px]
-          text-purple-100/70
-          font-serif
+                  className="mt-2 text-[12px] sm:text-[13px] md:text-[15px]  text-purple-100/70 font-serif
         "
                 >
                   রাসুলুল্লাহ ﷺ এর বাণী ও সুন্নাহ
@@ -789,14 +722,7 @@ const Hadith = () => {
   ================================================== */}
 
             <div
-              className="
-      absolute
-      left-1/2
-      -bottom-8
-      -translate-x-1/2
-      z-20
-      w-[92%]
-      max-w-140
+              className=" absolute left-1/2 -bottom-8 -translate-x-1/2 z-20 w-[92%] max-w-140
     "
             >
 
@@ -811,38 +737,16 @@ const Hadith = () => {
 
     return (
       <header
-        className="
-          bg-linear-to-br
-          from-[#071A3D]
-          via-[#102B68]
-          to-[#174EA6]
-          text-white
-          px-5
-          pt-5
-          pb-7
-          rounded-b-[28px]
-          shadow-lg
+        className=" bg-linear-to-br from-[#071A3D] via-[#102B68] to-[#174EA6] text-white px-5 pt-5 pb-7 rounded-b-[28px] shadow-lg
         "
       >
         <div
-          className="
-            max-w-180
-            mx-auto
-            flex
-            items-center
-            gap-4
+          className=" max-w-180 mx-auto flex items-center gap-4
           "
         >
           <button
             onClick={handleBack}
-            className="
-              w-9
-              h-9
-              rounded-xl
-              bg-white/10
-              flex
-              items-center
-              justify-center
+            className=" w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center
             "
           >
             <ArrowLeft className="w-5 h-5" />
@@ -850,41 +754,28 @@ const Hadith = () => {
 
           <div>
             <p
-              className="
-                text-[9px]
-                uppercase
-                tracking-widest
-                text-blue-200
+              className=" text-[9px] uppercase tracking-widest  text-blue-200
               "
             >
               HADITH COLLECTION
             </p>
 
             <h1
-              className="
-                text-[19px]
-                font-bold
-                font-serif
-                mt-0.5
+              className=" text-[19px] font-bold font-serif mt-0.5
               "
             >
               {selectedCollection.bn}
             </h1>
 
             <p
-              className="
-                text-[11px]
-                text-blue-100
+              className=" text-[11px] text-blue-100
               "
             >
               {selectedCollection.author}
             </p>
 
             <p
-              className="
-                text-[10px]
-                text-blue-200
-                mt-0.5
+              className="text-[10px] text-blue-200 mt-0.5
               "
             >
               {selectedCollection.count} হাদিস
@@ -924,74 +815,33 @@ const Collections = () => {
           <button
             key={collection.id}
             onClick={() => loadCollection(collection)}
-            className="
-              w-full
-              bg-white
-              rounded-2xl
-              p-3
-              text-left
-              border
-              border-slate-100
-              shadow-[0_3px_12px_rgba(15,23,42,0.05)]
-              hover:shadow-md
-              active:scale-[0.97]
-              transition
+            className="w-full  bg-white rounded-2xl p-3 text-left border  border-slate-100shadow-[0_3px_12px_rgba(15,23,42,0.05)] hover:shadow-md active:scale-[0.97] transition
             "
           >
 
             <div
-              className={`
-                w-11
-                h-11
-                rounded-xl
-                bg-linear-to-br
-                ${collection.color}
-                flex
-                items-center
-                justify-center
-                text-white
-                font-bold
-                text-[14px]
-                shadow-md
+              className={`w-11 h-11 rounded-xl bg-linear-to-br ${collection.color} flex items-center justify-center  text-white font-bold text-[14px] shadow-md
               `}
             >
               {collection.short}
             </div>
 
             <h3
-              className="
-                text-[16px]
-                font-bold
-                font-serif
-                text-slate-800
-                mt-3
-                leading-5
+              className=" text-[16px] font-bold font-serif  text-slate-800 mt-3 leading-5
               "
             >
               {collection.bn}
             </h3>
 
             <p
-              className="
-                text-[12px]
-                text-slate-500
-                mt-1
-                leading-4
-                line-clamp-2
+              className="text-[12px]  text-slate-500 mt-1 leading-4 line-clamp-2
               "
             >
               {collection.author}
             </p>
 
             <div
-              className="
-                flex
-                items-center
-                justify-between
-                mt-3
-                pt-2
-                border-t
-                border-slate-100
+              className=" flex items-center justify-between mt-3 pt-2 border-t  border-slate-100
               "
             >
               <div>
@@ -1026,33 +876,19 @@ const Collections = () => {
       <div className="px-4 pt-5">
 
         <div
-          className="
-            bg-white
-            rounded-2xl
-            p-4
-            mb-4
-            border
-            border-slate-100
-            shadow-sm
+          className=" bg-white rounded-2xl p-4 mb-4 border border-slate-100 shadow-sm
           "
         >
 
           <p
-            className="
-              text-[10px]
-              text-blue-600
-              font-semibold
+            className=" text-[10px]  text-blue-600 font-semibold
             "
           >
             {selectedCollection.en}
           </p>
 
           <h2
-            className="
-              text-[16px]
-              font-bold
-              text-slate-800
-              mt-1
+            className="text-[16px] font-bold  text-slate-800 mt-1
             "
           >
             অধ্যায়সমূহ
@@ -1060,9 +896,7 @@ const Collections = () => {
 
           <p
             className="
-              text-[11px]
-              text-slate-500
-              mt-1
+              text-[11px]  text-slate-500 mt-1
             "
           >
             যে অধ্যায়টি পড়তে চান সেটি নির্বাচন করুন
@@ -1082,32 +916,12 @@ const Collections = () => {
               )
             }
             placeholder="অধ্যায় খুঁজুন..."
-            className="
-              w-full
-              bg-white
-              rounded-2xl
-              px-4
-              py-3
-              pr-11
-              text-[12px]
-              outline-none
-              border
-              border-slate-200
-              focus:border-blue-400
-              focus:ring-2
-              focus:ring-blue-100
+            className=" w-full  bg-white rounded-2xl px-4 py-3 pr-11 text-[12px] outline-none border  border-slate-200  focus:border-blue-400 focus:ring-2  focus:ring-blue-100
             "
           />
 
           <Search
-            className="
-              absolute
-              right-4
-              top-1/2
-              -translate-y-1/2
-              w-4
-              h-4
-              text-slate-400
+            className=" absolute  right-4 top-1/2 -translate-y-1/2 w-4 h-4  text-slate-400
             "
           />
 
@@ -1124,39 +938,14 @@ const Collections = () => {
                     section
                   )
                 }
-                className="
-                  w-full
-                  bg-white
-                  rounded-[17px]
-                  p-4
-                  flex
-                  items-center
-                  gap-4
-                  text-left
-                  border
-                  border-slate-100
-                  shadow-sm
-                  active:scale-[0.99]
-                  transition
+                className=" w-full  bg-white rounded-[17px] p-4 flex items-center gap-4 text-left
+                  border  border-slate-100 shadow-sm active:scale-[0.99]  transition
                 "
               >
 
                 <div
-                  className="
-                    w-11
-                    h-11
-                    rounded-xl
-                    bg-linear-to-br
-                    from-blue-600
-                    to-indigo-700
-                    text-white
-                    flex
-                    items-center
-                    justify-center
-                    font-bold
-                    text-[14px]
-                    shrink-0
-                    shadow-md
+                  className="w-11 h-11 rounded-xl bg-linear-to-br  from-blue-600 to-indigo-700
+               text-white flex items-center justify-center font-bold text-[14px] shrink-0 shadow-md
                   "
                 >
                   {toBanglaNumber(
@@ -1167,11 +956,7 @@ const Collections = () => {
                 <div className="flex-1">
 
                   <h3
-                    className="
-                      text-[14px]
-                      font-bold
-                      font-serif
-                      text-slate-800
+                    className=" text-[14px] font-bold font-serif  text-slate-800
                     "
                   >
                     {section.title}
@@ -1180,10 +965,7 @@ const Collections = () => {
                   {section.first &&
                     section.last ? (
                     <p
-                      className="
-                        text-[10px]
-                        text-slate-500
-                        mt-1
+                      className="text-[10px] text-slate-500 mt-1
                       "
                     >
                       হাদিসের রেঞ্জ:{" "}
@@ -1198,9 +980,7 @@ const Collections = () => {
                   ) : (
                     <p
                       className="
-                        text-[10px]
-                        text-slate-400
-                        mt-1
+                        text-[10px] text-slate-400 mt-1
                       "
                     >
                       এই অধ্যায়ের হাদিসসমূহ
@@ -1210,10 +990,7 @@ const Collections = () => {
                 </div>
 
                 <ChevronRight
-                  className="
-                    w-4
-                    h-4
-                    text-slate-300
+                  className="w-4 h-4  text-slate-300
                   "
                 />
 
@@ -1238,44 +1015,27 @@ const Collections = () => {
         {/* Chapter info */}
 
         <div
-          className="
-            bg-linear-to-br
-            from-[#071A3D]
-            to-[#174EA6]
-            rounded-2xl
-            p-4
-            text-white
-            shadow-lg
+          className=" bg-linear-to-br from-[#071A3D]to-[#174EA6] rounded-2xl p-4
+           text-white shadow-lg
           "
         >
 
           <p
-            className="
-              text-[9px]
-              text-blue-200
-              uppercase
-              tracking-widest
+            className="text-[9px] text-blue-200  uppercase tracking-widest
             "
           >
             CHAPTER
           </p>
 
           <h2
-            className="
-              text-[16px]
-              font-bold
-              font-serif
-              mt-1
+            className="text-[16px] font-bold font-serif  mt-1
             "
           >
             {selectedSection.title}
           </h2>
 
           <p
-            className="
-              text-[10px]
-              text-blue-100
-              mt-1
+            className="  text-[10px]  text-blue-100  mt-1
             "
           >
             এই অধ্যায়ের হাদিসসমূহ
@@ -1295,32 +1055,13 @@ const Collections = () => {
               )
             }
             placeholder="হাদিস নম্বর বা বাংলা লেখা খুঁজুন..."
-            className="
-              w-full
-              bg-white
-              rounded-2xl
-              px-4
-              py-3
-              pr-11
-              text-[12px]
-              outline-none
-              border
-              border-slate-200
-              focus:border-blue-400
-              focus:ring-2
-              focus:ring-blue-100
+            className="  w-full bg-white rounded-2xl  px-4 py-3  pr-11 text-[12px] outline-none
+              border  border-slate-200 focus:border-blue-400  focus:ring-2  focus:ring-blue-100
             "
           />
 
           <Search
-            className="
-              absolute
-              right-4
-              top-1/2
-              -translate-y-1/2
-              w-4
-              h-4
-              text-slate-400
+            className="  absolute  right-4  top-1/2  -translate-y-1/2  w-4  h-4  text-slate-400
             "
           />
 
@@ -1329,18 +1070,11 @@ const Collections = () => {
         {/* Count */}
 
         <div
-          className="
-            flex
-            items-center
-            justify-between
-            px-1
-          "
+          className=" flex items-center justify-between px-1"
         >
 
           <p
-            className="
-              text-[10px]
-              text-slate-500
+            className="  text-[10px] text-slate-500
             "
           >
             মোট{" "}
@@ -1351,11 +1085,7 @@ const Collections = () => {
           </p>
 
           <p
-            className="
-              text-[10px]
-              text-blue-600
-              font-semibold
-            "
+            className=" text-[10px] text-blue-600 font-semibold"
           >
             {selectedCollection.bn}
           </p>
@@ -1368,39 +1098,20 @@ const Collections = () => {
           (hadith, index) => (
             <article
               key={`${hadith.number}-${index}`}
-              className="
-                bg-white
-                rounded-[18px]
-                p-5
-                border
-                border-slate-100
-                shadow-[0_3px_12px_rgba(15,23,42,0.04)]
+              className="  bg-white rounded-[18px]  p-5  border  border-slate-100 shadow-[0_3px_12px_rgba(15,23,42,0.04)]
               "
             >
 
               {/* Top */}
 
               <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                  pb-3
-                  border-b
-                  border-slate-100
+                className="  flex items-center justify-between  pb-3 border-b border-slate-100
                 "
               >
 
                 <span
-                  className="
-                    bg-blue-50
-                    text-blue-700
-                    px-3
-                    py-1.5
-                    rounded-lg
-                    text-[10px]
-                    font-bold
-                  "
+                  className="  bg-blue-50  text-blue-700 px-3 py-1.5  rounded-lg  text-[10px]
+                    font-bold"
                 >
                   হাদিস{" "}
                   {toBanglaNumber(
@@ -1409,10 +1120,7 @@ const Collections = () => {
                 </span>
 
                 <span
-                  className="
-                    text-[9px]
-                    text-slate-400
-                  "
+                  className=" text-[9px] text-slate-400 "
                 >
                   {selectedCollection.bn}
                 </span>
@@ -1425,12 +1133,7 @@ const Collections = () => {
                 <div className="pt-5">
 
                   <p
-                    className="
-                      text-[10px]
-                      text-blue-600
-                      font-semibold
-                      mb-3
-                    "
+                    className=" text-[10px] text-blue-600 font-semibold mb-3"
                   >
                     আরবি
                   </p>
@@ -1438,12 +1141,7 @@ const Collections = () => {
                   <p
                     dir="rtl"
                     lang="ar"
-                    className="
-                      text-right
-                      text-[19px]
-                      leading-loose
-                      font-serif
-                      text-slate-800
+                    className=" text-right text-[19px] leading-loose font-serif text-slate-800
                     "
                   >
                     {hadith.arabic}
@@ -1457,11 +1155,7 @@ const Collections = () => {
               {hadith.arabic &&
                 hadith.bengali && (
                   <div
-                    className="
-                      h-px
-                      bg-slate-100
-                      my-5
-                    "
+                    className="  h-px bg-slate-100 my-5"
                   />
                 )}
 
@@ -1471,29 +1165,15 @@ const Collections = () => {
                 <div>
 
                   <div
-                    className="
-                      flex
-                      items-center
-                      gap-2
-                      mb-2
-                    "
+                    className="  flex  items-center gap-2 mb-2"
                   >
 
                     <div
-                      className="
-                        w-1
-                        h-4
-                        rounded-full
-                        bg-blue-600
-                      "
+                      className=" w-1 h-4 rounded-full bg-blue-600"
                     />
 
                     <h4
-                      className="
-                        text-[11px]
-                        font-bold
-                        text-slate-700
-                      "
+                      className=" text-[11px] font-bold text-slate-700"
                     >
                       বাংলা অনুবাদ
                     </h4>
@@ -1502,12 +1182,7 @@ const Collections = () => {
 
                   <p
                     lang="bn"
-                    className="
-                      text-[13px]
-                      leading-[1.9]
-                      text-slate-700
-                      font-serif
-                    "
+                    className="7 text-[13px]  leading-[1.9] text-slate-700 font-serif"
                   >
                     {hadith.bengali}
                   </p>
@@ -1518,37 +1193,18 @@ const Collections = () => {
               {/* Footer */}
 
               <div
-                className="
-                  mt-5
-                  pt-3
-                  border-t
-                  border-slate-100
-                  flex
-                  items-center
-                  justify-between
+                className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between
                 "
               >
 
                 <span
-                  className="
-                    text-[9px]
-                    text-slate-400
-                  "
+                  className="text-[9px] text-slate-400"
                 >
                   উৎস: {selectedCollection.en}
                 </span>
 
                 <button
-                  className="
-                    w-7
-                    h-7
-                    rounded-lg
-                    bg-slate-50
-                    flex
-                    items-center
-                    justify-center
-                    text-slate-400
-                  "
+                  className=" w-7 h-7 rounded-lg bg-slate-50 flexitems-center justify-center text-slate-400"
                 >
                   <Bookmark className="w-3.5 h-3.5" />
                 </button>
@@ -1564,40 +1220,23 @@ const Collections = () => {
         {visibleHadiths.length === 0 &&
           !loading && (
             <div
-              className="
-                bg-white
-                rounded-2xl
-                p-10
-                text-center
-                border
-                border-slate-100
-              "
+              className="  bg-white rounded-2xl p-10 text-center border border-slate-100 "
             >
 
               <BookText
-                className="
-                  w-9
-                  h-9
-                  text-blue-600
-                  mx-auto
+                className=" w-9 h-9 text-blue-600  mx-auto
                 "
               />
 
               <h3
-                className="
-                  text-sm
-                  font-bold
-                  mt-3
+                className="  text-sm  font-bold mt-3
                 "
               >
                 কোনো হাদিস পাওয়া যায়নি
               </h3>
 
               <p
-                className="
-                  text-[10px]
-                  text-slate-400
-                  mt-2
+                className="  text-[10px]  text-slate-400  mt-2
                 "
               >
                 অন্য নম্বর অথবা search term
@@ -1617,20 +1256,13 @@ const Collections = () => {
 
   return (
     <div
-      className="
-        min-h-screen
-        bg-[#f6f8fc]
-        text-slate-700
-        pb-24
-      "
+      className="  min-h-screen bg-[#f6f8fc] text-slate-700  pb-24"
     >
 
       <Header />
 
       <main
-        className="
-          max-w-180
-          mx-auto
+        className="  max-w-180 mx-auto
         "
       >
 
@@ -1638,41 +1270,21 @@ const Collections = () => {
 
         {loading && (
           <div
-            className="
-              flex
-              flex-col
-              items-center
-              justify-center
-              py-24
-            "
+            className="flex  flex-col  items-center justify-center py-24"
           >
 
             <div
-              className="
-                w-12
-                h-12
-                rounded-2xl
-                bg-blue-50
-                flex
-                items-center
-                justify-center
+              className=" w-12 h-12  rounded-2xl  bg-blue-50  flex  items-center  justify-center
               "
             >
               <Loader2
-                className="
-                  w-6
-                  h-6
-                  text-blue-600
-                  animate-spin
+                className=" w-6  h-6 text-blue-600 animate-spin
                 "
               />
             </div>
 
             <p
-              className="
-                mt-3
-                text-[11px]
-                text-slate-500
+              className="  mt-3 text-[11px]  text-slate-500
               "
             >
              হাদিস লোড হচ্ছে...
@@ -1685,17 +1297,8 @@ const Collections = () => {
 
         {error && !loading && (
           <div
-            className="
-              mx-4
-              mt-5
-              bg-red-50
-              border
-              border-red-200
-              text-red-600
-              p-4
-              rounded-2xl
-              text-[11px]
-              text-center
+            className="mx-4 mt-5 bg-red-50  border border-red-200 text-red-600 p-4  rounded-2xl
+             text-[11px] text-center
             "
           >
             {error}
@@ -1729,4 +1332,4 @@ const Collections = () => {
   );
 };
 
-export default Hadith;
+export default Hadith
