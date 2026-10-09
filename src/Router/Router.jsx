@@ -25,6 +25,12 @@ import Food from "../Components/Food/Food";
 import LearnQuran from "../Components/Learn_Quran/LearnQuran";
 import Hadith from "../Components/Hadith/Hadith";
 import Camera from "../Components/Camera/camera";
+import SuperAdminLayout from "../SuperAdmin/Layouts/SuperAdminLayout";
+import Dashboard from "../SuperAdmin/Pages/Dashboard";
+import ManageUsers from "../SuperAdmin/Pages/ManageUsers";
+import ManageTasks from "../SuperAdmin/Pages/ManageTasks";
+import TaskAssignments from "../SuperAdmin/Pages/TaskAssignments";
+import RoleManage from "../SuperAdmin/Pages/RoleMange";
 
 const router = createBrowserRouter([
   {
@@ -102,6 +108,33 @@ const router = createBrowserRouter([
       {
         path:"register",
         element:<Register></Register>
+      }
+    ],
+  },
+   // Super Admin routes
+  {
+    path: "/superadmin",
+    element: <SuperAdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "tasks",
+        element: <ManageTasks />,
+      },
+      {
+        path: "assignments",
+        element: <TaskAssignments />,
+      },
+      {
+        path:"role",
+        element:<RoleManage/>,
       }
     ],
   },
