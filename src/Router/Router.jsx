@@ -31,6 +31,12 @@ import ManageUsers from "../SuperAdmin/Pages/ManageUsers";
 import ManageTasks from "../SuperAdmin/Pages/ManageTasks";
 import TaskAssignments from "../SuperAdmin/Pages/TaskAssignments";
 import RoleManage from "../SuperAdmin/Pages/RoleMange";
+import AdminLayout from "../Admin/Layouts/AdminLayout";
+import AdminDashboard from "../Admin/Pages/AdminDashboard";
+import Users from "../Admin/Pages/Users";
+import Tasks from "../Admin/Pages/Tasks";
+import Approve from "../Admin/Pages/Approve";
+import Activity from "../Admin/Pages/Activity";
 
 const router = createBrowserRouter([
   {
@@ -46,12 +52,12 @@ const router = createBrowserRouter([
         element: <Prayer></Prayer>,
       },
       {
-        path:"camera",
-        element:<Camera></Camera>
+        path: "camera",
+        element: <Camera></Camera>
       },
       {
-        path:"food",
-        element:<Food></Food>
+        path: "food",
+        element: <Food></Food>
       },
       {
         path: "quran-spiritual",
@@ -82,8 +88,8 @@ const router = createBrowserRouter([
         element: <LearnQuran></LearnQuran>
       },
       {
-        path:"read_hadith",
-        element:<Hadith></Hadith>
+        path: "read_hadith",
+        element: <Hadith></Hadith>
       },
       {
         path: "analytics",
@@ -98,20 +104,20 @@ const router = createBrowserRouter([
         element: <Special_Modes></Special_Modes>,
       },
       {
-        path:"read_quran",
-        element:<ReadQuran></ReadQuran>
+        path: "read_quran",
+        element: <ReadQuran></ReadQuran>
       },
       {
-        path:"login",
-        element:<Login></Login>
+        path: "login",
+        element: <Login></Login>
       },
       {
-        path:"register",
-        element:<Register></Register>
+        path: "register",
+        element: <Register></Register>
       }
     ],
   },
-   // Super Admin routes
+  // Super Admin routes
   {
     path: "/superadmin",
     element: <SuperAdminLayout />,
@@ -133,11 +139,46 @@ const router = createBrowserRouter([
         element: <TaskAssignments />,
       },
       {
-        path:"role",
-        element:<RoleManage/>,
+        path: "role",
+        element: <RoleManage />,
       }
     ],
   },
+
+  //admin route
+
+  {
+    path: "/admin",
+    element: <AdminLayout></AdminLayout>,
+    children: [
+      {
+        index: true,
+        element: <AdminDashboard></AdminDashboard>
+      },
+      {
+        path: "dashboard",
+        element: <AdminDashboard></AdminDashboard>,
+      },
+      {
+        path: "user",
+        element: <Users></Users>
+      },
+      {
+        path: "task",
+        element: <Tasks></Tasks>
+      },
+      {
+        path: "approve",
+        element: <Approve></Approve>
+      },
+      {
+        path: "activity",
+        element: <Activity></Activity>
+      }
+    ]
+  },
+
+
   {
     path: "*",
     element: <Not_Found></Not_Found>,
