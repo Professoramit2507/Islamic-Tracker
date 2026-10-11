@@ -1,30 +1,56 @@
+// import { useState } from "react";
+// import { Outlet } from "react-router";
+// import Navbar from "../../SuperAdmin/Components/Navber";
+// import { SuperAdminProvider } from "../../SuperAdmin/Layouts/SuperAdminContext";
+// import SuperAdminSidebar from "../Components/SuperAdminSideber";
 
-import { useState } from "react";
+// export default function SuperAdminLayout() {
+//   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+//   return (
+//     <SuperAdminProvider>
+//       <div className="min-h-screen bg-slate-50">
+//         <SuperAdminSidebar
+//           open={sidebarOpen}
+//           onClose={() => setSidebarOpen(false)}
+//         />
+
+//         <div className="min-h-screen min-w-0 md:ml-64 flex flex-col">
+//           <Navbar onMenuClick={() => setSidebarOpen(true)} />
+
+//           <main className="flex-1 p-4 sm:p-6 lg:p-8">
+//             <Outlet />
+//           </main>
+//         </div>
+//       </div>
+//     </SuperAdminProvider>
+//   );
+// }
+
+
+
+
+
+
+
 import { Outlet } from "react-router";
+import SuperAdminSideber from "../Components/SuperAdminSideber";
+import { SuperAdminProvider } from "./SuperAdminContext";
+import SuperAdminNavbar from "../Components/SuperAdminNavber";
 
-import Sidebar from "../../SuperAdmin/Components/Sideber";
-import Navbar from "../../SuperAdmin/Components/Navber";
-
-import { SuperAdminProvider } from
-  "../../SuperAdmin/Layouts/SuperAdminContext";
 
 export default function SuperAdminLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+
 
   return (
     <SuperAdminProvider>
       <div className="min-h-screen bg-slate-50">
-        <Sidebar
-          open={sidebarOpen}
-          onClose={() => setSidebarOpen(false)}
-        />
+        <SuperAdminSideber></SuperAdminSideber>
 
-        <div className="min-h-screen lg:ml-64">
-          <Navbar
-            onMenuClick={() => setSidebarOpen(true)}
-          />
+        <div className="min-h-screen min-w-0 md:ml-64 flex flex-col">
+        <SuperAdminNavbar></SuperAdminNavbar>
 
-          <main className="p-4 sm:p-6 lg:p-8">
+          <main className="flex-1 p-4 sm:p-6 lg:p-8">
             <Outlet />
           </main>
         </div>
@@ -32,4 +58,3 @@ export default function SuperAdminLayout() {
     </SuperAdminProvider>
   );
 }
-

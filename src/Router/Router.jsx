@@ -39,6 +39,8 @@ import Approve from "../Admin/Pages/Approve";
 import Activity from "../Admin/Pages/Activity";
 import AdminLogin from "../Admin/Auth/AdminLogin";
 import AdminProtectedRoute from "../Admin/Auth/AdminProtectedRoute";
+import SuperAdminLogin from "../SuperAdmin/Auth/SuperAdminLogin";
+import SuperAdminProtected from "../SuperAdmin/Auth/SuperAdminProtected";
 
 const router = createBrowserRouter([
   {
@@ -119,10 +121,23 @@ const router = createBrowserRouter([
       }
     ],
   },
+
+  //super admin login
+  {
+    path: "/superadmin/login",
+    element: <SuperAdminLogin></SuperAdminLogin>
+  },
+
+
   // Super Admin routes
   {
     path: "/superadmin",
-    element: <SuperAdminLayout />,
+    element:
+      (
+        <SuperAdminProtected>
+          <SuperAdminLayout />
+        </SuperAdminProtected>
+      ),
     children: [
       {
         index: true,
@@ -147,6 +162,7 @@ const router = createBrowserRouter([
     ],
   },
 
+  //admin login
   {
     path: "/admin/login",
     element: <AdminLogin />,

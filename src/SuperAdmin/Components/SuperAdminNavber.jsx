@@ -1,7 +1,7 @@
 
 import { Menu, Bell, ShieldCheck } from "lucide-react";
 
-export default function Navbar({ onMenuClick }) {
+export default function SuperAdminNavbar({ onMenuClick }) {
   return (
     <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b border-slate-200 bg-white px-4 sm:px-8">
       <div className="flex items-center gap-3">
