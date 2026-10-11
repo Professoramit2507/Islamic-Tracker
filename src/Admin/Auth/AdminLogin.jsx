@@ -8,7 +8,7 @@ const AdminLogin = () => {
     password: '',
   });
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,32 +18,19 @@ const AdminLogin = () => {
     if (error) setError('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  setError('');
 
-    try {
-      // এখানে আপনার ব্যাকএন্ড অথেন্টিকেশন API কল করবেন
-      // উদাহরণ: const res = await axios.post('/api/auth/login', formData);
-      
-      // ডামি রোল চেকিং লজিক:
-      if (formData.email.includes('admin')) {
-        // টোকেন বা ইউজার ডেটা সেভ (localStorage / Context)
-        localStorage.setItem('adminToken', 'demo-token');
-        localStorage.setItem('role', 'admin');
-        
-        // সফল হলে সরাসরি এডমিন প্যানেলে রিডাইরেক্ট
-        navigate('/admin');
-      } else {
-        setError('Access denied. You do not have admin permissions.');
-      }
-    } catch (err) {
-      setError(err?.response?.data?.message || 'Invalid email or password.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  // ডামি ক্রেডেনশিয়াল ভ্যালিডেশন
+  if (formData.email === 'admin@gmail.com' && formData.password === 'admin123') {
+    localStorage.setItem('adminToken', 'dummy-admin-token-xyz');
+    localStorage.setItem('role', 'admin');
+    navigate('/admin');
+  } else {
+    setError('ভুল ইমেইল বা পাসওয়ার্ড! ব্যবহার করুন: admin@taskflow.com / admin123');
+  }
+};
 
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
