@@ -37,6 +37,8 @@ import Users from "../Admin/Pages/Users";
 import Tasks from "../Admin/Pages/Tasks";
 import Approve from "../Admin/Pages/Approve";
 import Activity from "../Admin/Pages/Activity";
+import AdminLogin from "../Admin/Auth/AdminLogin";
+import AdminProtectedRoute from "../Admin/Auth/AdminProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -145,11 +147,20 @@ const router = createBrowserRouter([
     ],
   },
 
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
+
   //admin route
 
   {
     path: "/admin",
-    element: <AdminLayout></AdminLayout>,
+    element:
+      (<AdminProtectedRoute>
+        <AdminLayout></AdminLayout>,
+      </AdminProtectedRoute>
+      ),
     children: [
       {
         index: true,
