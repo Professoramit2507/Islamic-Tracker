@@ -41,6 +41,7 @@ import AdminLogin from "../Admin/Auth/AdminLogin";
 import AdminProtectedRoute from "../Admin/Auth/AdminProtectedRoute";
 import SuperAdminLogin from "../SuperAdmin/Auth/SuperAdminLogin";
 import SuperAdminProtected from "../SuperAdmin/Auth/SuperAdminProtected";
+import HadithDemo from "../Components/Hadith/Compo/Components/Hadith";
 
 const router = createBrowserRouter([
   {
@@ -91,9 +92,13 @@ const router = createBrowserRouter([
         path: "learn-quran",
         element: <LearnQuran></LearnQuran>
       },
-      {
+      // {
+      //   path: "read_hadith",
+      //   element: <Hadith></Hadith>
+      // },
+       {
         path: "read_hadith",
-        element: <Hadith></Hadith>
+        element: <HadithDemo></HadithDemo>
       },
       {
         path: "analytics",
